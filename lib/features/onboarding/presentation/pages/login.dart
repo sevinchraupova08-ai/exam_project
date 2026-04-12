@@ -100,27 +100,31 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
-          SizedBox(height: 20,),
-            Row(mainAxisAlignment:MainAxisAlignment .center,
-              children: [
-                Text(
-                  'Dont have an account yet?',
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Dont have an account yet?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Sign Up',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.purple,
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600,color: Colors.purple),
-                  ),
-                ),
-              ],
-            ),
-          
+              ),
+            ],
+          ),
         ],
       ),
     );
