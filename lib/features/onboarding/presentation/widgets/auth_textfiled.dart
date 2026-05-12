@@ -23,7 +23,7 @@ class AuthTextField extends StatelessWidget {
           border: InputBorder.none,
           hintText: hint,
           hintStyle: const TextStyle(
-            color: AppColors.hint,
+            color: AppColors.hint
           ),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 18,
