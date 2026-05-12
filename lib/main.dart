@@ -1,23 +1,11 @@
-import 'package:exam_project/features/onboarding/presentation/pages/forgot_password_screen.dart';
-import 'package:exam_project/features/onboarding/presentation/pages/email_sent_screen.dart';
-import 'package:exam_project/features/onboarding/presentation/pages/sabzi_ai_pages.dart';
-import 'package:exam_project/features/onboarding/presentation/pages/verification_input_screen.dart';
-import 'package:exam_project/features/onboarding/presentation/provider/app_provider.dart';
-import 'package:exam_project/features/onboarding/presentation/provider/category_provider.dart';
-import 'package:exam_project/features/onboarding/presentation/provider/note_provider.dart';
-import 'package:exam_project/features/onboarding/presentation/provider/product_provider.dart';
-import 'package:exam_project/screens/home_page.dart';
-import 'package:exam_project/screens/home_pagee.dart';
+import 'package:exam_project/core/routes/app_routes.dart';
+import 'package:exam_project/features/auth/cubit/auth_cubit.dart';
+import 'package:exam_project/features/onboarding/data/repository/auth_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => ProductProvider(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +19,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: (SabziAiPage()),
+      home: BlocProvider(
+        create: (context) => AuthCubit(context.read<AuthRepository>()),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "eccomerco UI",
+          theme: ThemeData(
+            fontFamily: "Roboto",
+            scaffoldBackgroundColor: const Color(0xffF4F4F4),
+          ),
+          onGenerateRoute: AppRoutes.onGenerateRoute,
+          initialRoute: AppRoutes.signInEmail,
+        ),
+      ),
     );
   }
 }

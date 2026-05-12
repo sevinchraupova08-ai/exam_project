@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.5+1
   pinput: ^6.0.2
+  http: ^1.6.0
+  hive_ce: ^2.19.3
+  flutter_bloc: ^9.1.1
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
